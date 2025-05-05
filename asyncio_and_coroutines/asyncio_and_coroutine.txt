@@ -1,0 +1,88 @@
+What is asyncio and why do we use it?
+
+- Python normally runs one task at a time (synchronous).
+- asyncio allows Python to do multiple tasks at once (asynchronous).
+- It's useful when waiting (like waiting for API responses, files, or delays).
+- Helps you write non-blocking code using async, await, and coroutines.
+ 
+What is a Coroutine?
+- Coroutine is a special function in Python.
+- It runs with async keyword.
+- It can pause using await and give control back to the event loop.
+- Later it resumes from where it paused.
+
+🔹 Syntax:
+```
+async def my_coroutine():
+    print("Start")
+    await some_async_task()
+    print("End")
+
+
+```
+
+Basic Keywords in asyncio:
+
+1. async def
+- Defines a coroutine (like a special function).
+
+```
+async def greet():
+    print("Hello")
+
+```
+
+2. await
+- Waits for another coroutine to complete.
+- Only works inside async def.
+
+```
+import asyncio
+
+async def greet():
+    print("Before await")
+    await asyncio.sleep(1)
+    print("After 1 second")
+
+asyncio.run(greet())  # Runs the coroutine
+
+```
+
+3. asyncio.run():
+- Runs the coroutine at the top-level (like main function).
+
+```
+asyncio.run(greet())  # Runs from the event loop
+
+```
+
+4. asyncio.sleep():
+- Async version of time.sleep().
+- Doesn’t block other tasks.
+
+```
+await asyncio.sleep(1)  # Waits 1 second
+
+```
+
+5. asyncio.gather():
+- Runs multiple coroutines at the same time.
+
+```
+import asyncio
+
+async def task1():
+    await asyncio.sleep(1)
+    print("Task 1 done")
+
+async def task2():
+    await asyncio.sleep(2)
+    print("Task 2 done")
+
+async def main():
+    await asyncio.gather(task1(), task2())
+
+asyncio.run(main())
+
+
+```

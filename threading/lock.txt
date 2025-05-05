@@ -1,0 +1,9 @@
+What is lock in Python threading?
+A lock (short for thread lock) is a synchronization mechanism in Python’s threading module that prevents multiple threads from accessing shared data at the same time. It ensures that only one thread can modify a shared resource (like a variable) at any given moment, avoiding race conditions.
+
+Why is lock used in your code?
+Your code increments a global variable count across two different threads (t1 and t2), each running the add_count() function.
+Without the lock, both threads could simultaneously read and update count, leading to inconsistent or incorrect results because:
+- One thread might read count before the other updates it.
+- The final value of count may not be 2000, because updates might get lost due to race conditions.
+By using with lock: inside the loop, you prevent both threads from modifying count at the same time.

@@ -1,0 +1,57 @@
+✅ 1. What is a Generator?
+
+- A generator is a special function that returns values one at a time, instead of all at once.
+- It remembers where it left off and resumes from there.
+- It uses the yield keyword instead of return.
+
+✅ 2. Why Use Generators?
+- To handle large data efficiently.
+- Saves memory (does not store the entire list in memory).
+- Supports lazy evaluation (produces values only when needed).
+
+✅ Basic Generator Example
+
+- yield returns a value and pauses the function.
+- On next call, the function resumes after the last yield.
+
+
+```
+def my_generator():
+    yield 1
+    yield 2
+    yield 3
+
+gen = my_generator()
+
+print(next(gen))  # Output: 1
+print(next(gen))  # Output: 2
+print(next(gen))  # Output: 3
+
+
+```
+
+
+✅ 4. Generator vs Normal Function
+
+✅ Normal Function:
+
+- Stores all values in memory.
+- Returns all at once.
+
+```
+def normal():
+    return [1, 2, 3]
+```
+
+✅ Generator Function:
+
+- Returns one value at a time.
+- Saves memory.
+
+```
+def gen():
+    yield 1
+    yield 2
+    yield 3
+
+```

@@ -1,0 +1,65 @@
+🧱Basic Python Needed Before Threading
+
+👉 How to create a function:
+
+```
+def greet():
+    print("Hello")
+
+greet()  # Output: Hello
+
+```
+👉 How to use loops:
+
+```
+for i in range(3):
+    print(i)
+
+```
+
+Now we’ll use these basics in Threading :
+
+STEP 2: Create your first Thread
+🔸 Without Threading (runs one after another):
+
+```
+def task1():
+    for i in range(3):
+        print("Task 1")
+
+def task2():
+    for i in range(3):
+        print("Task 2")
+
+task1()
+task2()
+
+```
+
+
+🔸 With Threading (runs at the same time)
+
+```
+import threading
+
+def task1():
+    for i in range(3):
+        print("Task 1")
+
+def task2():
+    for i in range(3):
+        print("Task 2")
+
+t1 = threading.Thread(target=task1)
+t2 = threading.Thread(target=task2)
+
+t1.start()  # Starts task1 in new thread
+t2.start()  # Starts task2 in new thread
+
+t1.join()   # Waits for task1 to finish
+t2.join()   # Waits for task2 to finish
+
+print("Both tasks finished")
+
+```
+

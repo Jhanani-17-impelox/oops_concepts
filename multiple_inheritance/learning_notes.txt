@@ -1,0 +1,2 @@
+In Python's multiple inheritance:
+- Every class in the hierarchy should use super().__init__(**kwargs), not just the child class.

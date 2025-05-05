@@ -1,0 +1,41 @@
+Python is dynamically typed, so it does not require declaring types.
+
+But using typing module helps to:
+    - Write clean, safe, and readable code
+    - Get IDE suggestions and catch type errors earlier
+    - Make your functions understandable for others and AI models
+
+1. Type Hinting in Functions
+🔹 Without Typing
+```
+def add(a, b):
+    return a + b
+
+```
+
+Works, but IDE doesn't know if a, b are int, float, or str
+
+🔹 With Typing:
+
+```
+def add(a: int, b: int) -> int:
+    return a + b
+
+```    
+a: int → parameter type
+-> int → return type
+
+
+🔹Typing for Variables
+```
+name: str = "Jhanani"
+age: int = 21
+height: float = 5.4
+active: bool = True
+
+```
+This is just optional, but helps during development
+
+
+
+
